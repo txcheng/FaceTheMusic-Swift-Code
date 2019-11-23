@@ -12,10 +12,12 @@ struct MusicView: View {
     @EnvironmentObject var routingObserver: RoutingObserver
     
     var body: some View {
-        VStack{
+        VStack (alignment:.leading){
             Button(action: {self.routingObserver.currentPage = "main"}) {
-                BackButtonContent()
-            }
+                NavigationBarBackButton()
+            }.frame(alignment:.leading).padding(.leading, 5)
+        Divider()
+        Spacer()
         }
     }
 }

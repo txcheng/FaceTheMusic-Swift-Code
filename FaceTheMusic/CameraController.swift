@@ -98,6 +98,12 @@ struct CameraController: UIViewControllerRepresentable{
     {
         let camera = UIImagePickerController()
         camera.delegate = context.coordinator
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            camera.sourceType = .camera
+        }
+        else{
+            camera.sourceType = .photoLibrary
+        }
         return camera
     }
 }
