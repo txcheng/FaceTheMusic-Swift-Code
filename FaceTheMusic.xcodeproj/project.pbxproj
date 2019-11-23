@@ -20,6 +20,8 @@
 		B1DC689A2359807500C125CF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DC68992359807500C125CF /* CameraView.swift */; };
 		B1EF0FA92388878B00D9984F /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF0FA82388878B00D9984F /* MasterView.swift */; };
 		B1EF0FAB2388886D00D9984F /* RoutingObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF0FAA2388886D00D9984F /* RoutingObserver.swift */; };
+		B1EF0FAD2388F59F00D9984F /* AboutMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF0FAC2388F59F00D9984F /* AboutMeView.swift */; };
+		B1EF0FAF2388F74A00D9984F /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EF0FAE2388F74A00D9984F /* MusicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		B1DC68992359807500C125CF /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B1EF0FA82388878B00D9984F /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		B1EF0FAA2388886D00D9984F /* RoutingObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingObserver.swift; sourceTree = "<group>"; };
+		B1EF0FAC2388F59F00D9984F /* AboutMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeView.swift; sourceTree = "<group>"; };
+		B1EF0FAE2388F74A00D9984F /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				B1EF0FA82388878B00D9984F /* MasterView.swift */,
 				B1DC68952359793500C125CF /* MainView.swift */,
 				B1898C59235940BD00E8E7EB /* TakeAPictureView.swift */,
+				B1EF0FAE2388F74A00D9984F /* MusicView.swift */,
+				B1EF0FAC2388F59F00D9984F /* AboutMeView.swift */,
 				B1DC689723597BB900C125CF /* CameraController.swift */,
 				B1DC68992359807500C125CF /* CameraView.swift */,
 				B1EF0FAA2388886D00D9984F /* RoutingObserver.swift */,
@@ -284,7 +290,9 @@
 			files = (
 				B1EF0FAB2388886D00D9984F /* RoutingObserver.swift in Sources */,
 				B1898C5C235940C800E8E7EB /* AppDelegate.swift in Sources */,
+				B1EF0FAF2388F74A00D9984F /* MusicView.swift in Sources */,
 				B1898C5A235940BD00E8E7EB /* TakeAPictureView.swift in Sources */,
+				B1EF0FAD2388F59F00D9984F /* AboutMeView.swift in Sources */,
 				B1EF0FA92388878B00D9984F /* MasterView.swift in Sources */,
 				B1DC689823597BB900C125CF /* CameraController.swift in Sources */,
 				B1DC689A2359807500C125CF /* CameraView.swift in Sources */,

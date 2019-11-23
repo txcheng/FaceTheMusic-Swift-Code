@@ -22,9 +22,18 @@ struct TakeAPictureView: View {
             Button(action: {self.routingObserver.currentPage = "main"}) {
                 BackButtonContent()
             }
+            //one button to choose from library
             Button(action: {self.showCamera = true}) {
                 Text("Show camera")
+                
             }
+            //one button to choose to take a picture
+            
+            //Show selected picture if there is one
+            //Show analyze picture button if there is a picture
+            //navigate to a different view to show the results of the analyzed picture
+            
+            
         }.sheet(isPresented: self.$showCamera){
             CameraView(showCamera: self.$showCamera, image: self.$image, emotion: self.$emotion)
         }

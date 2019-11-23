@@ -63,7 +63,7 @@ struct MainView_Previews: PreviewProvider {
     }
 }
 
-
+//makes the menu buttons with a given string
 struct MenuButtonContent : View {
     var text: String
     
