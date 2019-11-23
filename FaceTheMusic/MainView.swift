@@ -26,96 +26,59 @@ struct MainView: View {
             //Navigate to the Camera
             Button(action: {self.routingObserver.currentPage = "camera"})
             {
-                MenuButtonContent()
+                MenuButtonContent(buttonText:"Take a picture!")
             }
             //space from the left and right edges
             .padding([.leading, .trailing], 20)
             
             Spacer()
+            
+            //Navigate to music
+            Button(action:{
+                self.routingObserver.currentPage = "music"
+            }){
+                MenuButtonContent(buttonText:"Customize music")
+            }
+            .padding([.leading, .trailing], 20)
+            
+            Spacer()
+            
+            //Navigate to more information
+            Button(action:{
+                self.routingObserver.currentPage = "about"
+            }){
+                MenuButtonContent(buttonText:"About me")
+            }
+            .padding([.leading, .trailing], 20)
+            
+            Spacer()
         }
     }
-//
-//    var body: some View {
-//        VStack{
-//            Button(action: {self.routingObserver.viewPage = "page2"}) {
-//                NextButtonContent()
-//            }
-//            Spacer()
-//            //Title
-//            Text("Face the Music")
-//                .font(.largeTitle)
-//
-//            Spacer()
-//
-//            //Navigate to Camera
-//            Button(action:{
-//                self.routingObserver.viewPage = "camera"
-////                print(self.routingObserver.viewPage)
-//            }){
-//                Text("Take a picture!")
-//                    //Make all the buttons the same width
-//                .frame(minWidth: 0, maxWidth: .infinity)
-//                .padding()
-//                .background(Color.blue)
-//                .foregroundColor(Color.white)
-//                    //rounded corners
-//                .cornerRadius(60)
-//            }
-//                //space from the edge
-//            .padding([.leading, .trailing], 20)
-//
-//            Spacer()
-//
-//            //Navigate to music
-//            Button(action:{
-//                self.routingObserver.viewPage = "music"
-//                print(self.routingObserver.viewPage)
-//            }){
-//                Text("Customize music")
-//                .frame(minWidth: 0, maxWidth: .infinity)
-//                .padding()
-//                .background(Color.blue)
-//                .foregroundColor(Color.white)
-//                .cornerRadius(60)
-//            }
-//            .padding([.leading, .trailing], 20)
-//
-//            Spacer()
-//
-//            //Navigate to more information
-//            Button(action:{
-//                self.routingObserver.viewPage = "about"
-//                print(self.routingObserver.viewPage)
-//            }){
-//                Text("About me")
-//                .frame(minWidth: 0, maxWidth: .infinity)
-//                .padding()
-//                .background(Color.blue)
-//                .foregroundColor(Color.white)
-//                .cornerRadius(60)
-//            }
-//            .padding([.leading, .trailing], 20)
-//
-//            Spacer()
-//        }
-//    }
 }
 
+//this is for the preview/debugging
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView().environmentObject(RoutingObserver())
     }
 }
 
+
 struct MenuButtonContent : View {
+    var text: String
+    
+    init(buttonText: String){
+        text = buttonText
+    }
+    
     var body: some View {
-        return Text("Take a picture!")
-                            //Make all the buttons the same width
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(Color.white)
-                            //rounded corners
-                        .cornerRadius(60)
+        return Text(text)
+            //Make all the buttons the same width
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(Color.white)
+            //rounded corners
+            .cornerRadius(60)
     }
 }
