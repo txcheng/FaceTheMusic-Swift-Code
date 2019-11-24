@@ -10,12 +10,14 @@ import SwiftUI
 
 struct TakeAPictureView: View {
     @EnvironmentObject var routingObserver: RoutingObserver
+    @EnvironmentObject var imageEmotionData: ImageEmotionData
     
     @State private var showCamera: Bool = false
+    //have the image be an environmentobject
     @State private var image: Image? = nil
     @State private var findEmotion: Bool = false
+    //have the emotion also be an environment object
     @State private var emotion: String = ""
-    @State private var playMusic: Bool = false
     
     var body: some View {
         VStack (alignment:.leading){
@@ -27,22 +29,24 @@ struct TakeAPictureView: View {
             image?.resizable()
             Spacer()
             HStack{
-                
                 Button(action: {self.showCamera = true}) {
-                    NavigationBarButton(buttonText:"Take a picture")
+                    ActionButton(buttonText:"Take a picture")
                 } .padding([.leading, .trailing], 20)
                 //Show analyze picture button if there is a picture
-                //navigate to a different view to show the results of the analyzed picture
                 if image != nil{
+                    //navigate to a different view to show the results of the analyzed picture
                     Button(action:{
                         self.findEmotion = true
+                        self.imageEmotionData.emotion = self.emotion
+                        self.imageEmotionData.img = self.image
                     }){
-                        NavigationBarButton(buttonText:"Analyze picture!")
-                    }.padding(.leading,20)
+                        ActionButton(buttonText:"Analyze picture!")
+                    }.padding(.trailing,20)
                 }
             }
             Spacer()
         }.sheet(isPresented: self.$showCamera){
+            //add another binding image to store the img with a bounding box
             CameraView(showCamera: self.$showCamera, image: self.$image, emotion: self.$emotion)
         }
     }
@@ -50,7 +54,7 @@ struct TakeAPictureView: View {
 
 struct TakeAPictureView_Previews: PreviewProvider {
     static var previews: some View {
-        TakeAPictureView().environmentObject(RoutingObserver())
+        TakeAPictureView().environmentObject(RoutingObserver()).environmentObject( ImageEmotionData())
     }
 }
 
@@ -74,7 +78,7 @@ struct NavigationBarBackButton : View {
     }
 }
 
-struct NavigationBarButton: View {
+struct ActionButton: View {
     var text: String
     
     init(buttonText: String){

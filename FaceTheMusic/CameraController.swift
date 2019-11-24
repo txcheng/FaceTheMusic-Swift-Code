@@ -32,9 +32,7 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
         //cast input image as image
         image = Image(uiImage: uiImage)
         //if there is an image, encode it into a base64 string
-//        let strImage = uiImage.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
         let imgStr = uiImage.jpegData(compressionQuality: 1)?.base64EncodedString() ?? "failed"
-//        let imgStr = uiImage.pngData()?.base64EncodedString() ?? "failed"
         //send it to the API
         getEmotion(imgStr: imgStr)
         //get an emotion back
@@ -44,6 +42,7 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
     //takes a base64 string and submits a post requst with the string as part of a json body
     //{"img": imgStr}
     //recieves a string and saves it as the "emotion" variable
+    //recieves a json with [emotion] and [newImg] keys
     func getEmotion(imgStr: String){
         let address = "http://4b194f05.ngrok.io"
         let url = URL(string:address)!
@@ -65,6 +64,7 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
                     return
             }
             let emotionPrediction = String(data: data, encoding: .utf8) ?? "failed"
+            //get the new img too
             self.emotion = emotionPrediction
         }
         //do the post request

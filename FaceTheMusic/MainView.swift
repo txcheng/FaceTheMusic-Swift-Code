@@ -14,6 +14,8 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject var routingObserver: RoutingObserver
+    @EnvironmentObject var imageEmotionData: ImageEmotionData
+    @EnvironmentObject var audioPlayer: AudioPlayer
     
     var body: some View {
         VStack {
@@ -59,7 +61,7 @@ struct MainView: View {
 //this is for the preview/debugging
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView().environmentObject(RoutingObserver())
+        MainView().environmentObject(RoutingObserver()).environmentObject( ImageEmotionData())
     }
 }
 

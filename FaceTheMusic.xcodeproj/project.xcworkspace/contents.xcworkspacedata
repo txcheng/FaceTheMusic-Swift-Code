@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FaceTheMusic.xcodeproj">
+      location = "group:../FaceTheMusic/Music">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

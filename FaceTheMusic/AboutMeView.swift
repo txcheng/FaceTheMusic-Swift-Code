@@ -17,6 +17,7 @@ struct AboutMeView: View {
                  NavigationBarBackButton()
              }.frame(alignment:.leading).padding(.leading, 5)
             Divider()
+            //put stuff here
             Spacer()
          }
      }
@@ -24,6 +25,6 @@ struct AboutMeView: View {
 
 struct AboutMeView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutMeView()
+        AboutMeView().environmentObject(RoutingObserver())
     }
 }
