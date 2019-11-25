@@ -14,13 +14,13 @@ import AVFoundation
 class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
     let objectWillChange = PassthroughSubject<AudioPlayer,Never>()
     //store file paths for the audio
-//    let testHappy = Bundle.main.url(forResource: "happy", withExtension: "mp3")
+    
     var audioPaths: [String:URL?] = [
-        "happy":  Bundle.main.url(forResource: "happy", withExtension: "mp3", subdirectory: "Music"),
-        "sad": Bundle.main.url(forResource: "sad", withExtension: "mp3",subdirectory: "Music"),
-        "scared": Bundle.main.url(forResource: "scared", withExtension: "mp3",subdirectory: "Music"),
-        "neutral": Bundle.main.url(forResource: "neutral", withExtension: "mp3",subdirectory: "Music"),
-        "angry": Bundle.main.url(forResource: "angry", withExtension: "mp3",subdirectory: "Music")
+        "happy":  Bundle.main.url(forResource: "happy", withExtension: "mp3", subdirectory: "Music/happy"),
+        "sad": Bundle.main.url(forResource: "sad", withExtension: "mp3",subdirectory: "Music/sad"),
+        "scared": Bundle.main.url(forResource: "scared", withExtension: "mp3",subdirectory: "Music/scared"),
+        "neutral": Bundle.main.url(forResource: "neutral", withExtension: "mp3",subdirectory: "Music/neutral"),
+        "angry": Bundle.main.url(forResource: "angry", withExtension: "mp3",subdirectory: "Music/angry")
     ]
                     
     //make audio session

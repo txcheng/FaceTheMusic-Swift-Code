@@ -25,31 +25,46 @@ struct MusicView: View {
             //upon button click, the variable for emotion navigation changes
             VStack(spacing:50){
                 //button for each emotion
-                Button(action: {self.routingObserver.currentPage = "happy"})
+                Button(action: {
+                    self.routingObserver.currentPage = "options"
+                    self.routingObserver.emotion = "happy"
+                })
                 {
                     MenuButtonContent(buttonText:"Happy")
                 }
                 .padding([.leading, .trailing], 20)
 
-                Button(action: {self.routingObserver.currentPage = "sad"})
+                Button(action: {
+                    self.routingObserver.currentPage = "options"
+                    self.routingObserver.emotion = "sad"
+                })
                 {
                     MenuButtonContent(buttonText:"Sad")
                 }
                 .padding([.leading, .trailing], 20)
 
-                Button(action: {self.routingObserver.currentPage = "angry"})
+                Button(action: {
+                    self.routingObserver.currentPage = "options"
+                    self.routingObserver.emotion = "angry"
+                })
                 {
                     MenuButtonContent(buttonText:"Angry")
                 }
                 .padding([.leading, .trailing], 20)
 
-                Button(action: {self.routingObserver.currentPage = "scared"})
+                Button(action: {
+                    self.routingObserver.currentPage = "options"
+                    self.routingObserver.emotion = "scared"
+                })
                 {
                     MenuButtonContent(buttonText:"Scared")
                 }
                 .padding([.leading, .trailing], 20)
 
-                Button(action: {self.routingObserver.currentPage = "neutral"})
+                Button(action: {
+                    self.routingObserver.currentPage = "options"
+                    self.routingObserver.emotion = "neutral"
+                })
                 {
                     MenuButtonContent(buttonText:"Neutral")
                 }
@@ -58,7 +73,6 @@ struct MusicView: View {
             }
             Spacer()
         }
-//        .onAppear(perform:{self.audioPlayer.play(emotion:"angry")})
     }
 }
 

@@ -27,6 +27,9 @@ struct MasterView: View {
                 TakeAPictureView()
             }
             else if routingObserver.currentPage == "music"{
+                if audioPlayer.isPlaying{
+                    Text("").onAppear(perform:{self.audioPlayer.stop()})
+                }
                 MusicView()
             }
             else if routingObserver.currentPage == "about"{
@@ -34,6 +37,9 @@ struct MasterView: View {
             }
             else if routingObserver.currentPage == "result"{
                 EmotionResultView()
+            }
+            else if routingObserver.currentPage == "options"{
+                MusicSelectionList()
             }
         }
     }

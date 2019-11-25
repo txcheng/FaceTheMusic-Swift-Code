@@ -19,9 +19,13 @@ class RoutingObserver: ObservableObject {
     
     var currentPage: String = "main" {
         didSet {
-            withAnimation() {
-                objectWillChange.send(self)
-            }
+            objectWillChange.send(self)
+        }
+    }
+    
+    var emotion: String = ""{
+        didSet{
+            objectWillChange.send(self)
         }
     }
 }
