@@ -10,19 +10,21 @@ import SwiftUI
 struct MusicSelectionList: View {
     @EnvironmentObject var routingObserver: RoutingObserver
     @EnvironmentObject var audioPlayer: AudioPlayer
+    
     var body: some View {
-        VStack (alignment: .leading){
+        VStack {
             Group{
-                Button(action: {self.routingObserver.currentPage = "music"}) {
-                    BackButton()
-                }.frame(alignment:.leading).padding(.leading, 5)
+                MusicBack()
                 Divider()
             }
             Group{
                 MusicList(songs:["happy", "sad", "neutral"])
             }
             Spacer()
-        }.onAppear(perform:{self.audioPlayer.play(emotion:self.routingObserver.emotion)})
+        }.onAppear(perform:{
+            self.audioPlayer.play(emotion:self.routingObserver.emotion)
+            
+        })
     }
 }
 
@@ -40,8 +42,9 @@ struct BackButton : View {
 }
 
 struct MusicList: View{
+    //make this a list of Song objects with songTitle and URL
     let songs: [String]
-    
+
     var body: some View{
         return List{
             ForEach(songs, id:\.self){ song in
@@ -52,25 +55,57 @@ struct MusicList: View{
     }
 
 struct MusicRow: View{
+    @EnvironmentObject var routingObserver: RoutingObserver
+    @EnvironmentObject var audioPlayer: AudioPlayer
     var songTitle: String
     var body: some View{
         HStack{
             Text(songTitle)
             Spacer()
-            //make the select as default window pop up
-            Button(action:{print("Clicked Row")}){
+            //play the song
+            Button(action:{
+                print("Play music")
+                //play the song
+                if(self.audioPlayer.isPlaying){
+                    self.audioPlayer.stop()
+                }
+                else{
+                    self.audioPlayer.play(emotion:self.routingObserver.emotion)
+                }
+            }){
                 Text("")
             }
-            //play the selected song
             Button(action:{}){
-                Text("Play song")
-            }.onTapGesture(perform:{
-                //.onAppear(perform:{self.audioPlayer.play(emotion:self.routingObserver.emotion)})
-                //play the song title
-                print("Clicked Button!")
-            }).padding().background(Color.blue).foregroundColor(Color.white)
+                Text("Set as default")
+            }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(Color.white)
+            .cornerRadius(40)
+            .onTapGesture(perform:{
+                //set the song as default
+                print("set as default")
+            })
         }
     }
 }
 
 //make an object Song (has the url and title of song)
+struct Song{
+    var songTitle: String
+    var songURL: URL
+}
+
+struct MusicBack: View{
+    @EnvironmentObject var routingObserver: RoutingObserver
+    var body: some View{
+        VStack (alignment:.leading){
+            HStack{
+                Button(action: {self.routingObserver.currentPage = "music"}) {
+                                   BackButton()
+                               }.frame(alignment:.leading).padding(.leading, 5)
+            Spacer()
+            }
+        }
+    }
+}

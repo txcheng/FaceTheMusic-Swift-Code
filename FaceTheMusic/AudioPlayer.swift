@@ -15,7 +15,8 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
     let objectWillChange = PassthroughSubject<AudioPlayer,Never>()
     //store file paths for the audio
     
-    var audioPaths: [String:URL?] = [
+    //grab audio paths based on DefaultUserSettings
+    let audioPaths: [String:URL?] = [
         "happy":  Bundle.main.url(forResource: "happy", withExtension: "mp3", subdirectory: "Music/happy"),
         "sad": Bundle.main.url(forResource: "sad", withExtension: "mp3",subdirectory: "Music/sad"),
         "scared": Bundle.main.url(forResource: "scared", withExtension: "mp3",subdirectory: "Music/scared"),
@@ -34,6 +35,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
         }
     }
     
+    //make this take in a URL instead
     func play(emotion:String){
         //access speakers
         do{

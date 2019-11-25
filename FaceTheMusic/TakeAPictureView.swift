@@ -20,10 +20,8 @@ struct TakeAPictureView: View {
     @State private var emotion: String = ""
     
     var body: some View {
-        VStack (alignment:.leading){
-            Button(action: {self.routingObserver.currentPage = "main"}) {
-                NavigationBarBackButton()
-            }.frame(alignment:.leading).padding(.leading, 5)
+        VStack {
+            NavigationBar()
             Divider()
             //Show selected picture if there is one
             image?.resizable()
@@ -33,16 +31,18 @@ struct TakeAPictureView: View {
                     ActionButton(buttonText:"Take a picture")
                 } .padding([.leading, .trailing], 20)
                 //Show analyze picture button if there is a picture
-                if image != nil{
+//                if image != nil{
                     //navigate to a different view to show the results of the analyzed picture
                     Button(action:{
+                        self.routingObserver.currentPage = "result"
                         self.findEmotion = true
-                        self.imageEmotionData.emotion = self.emotion
+                        self.imageEmotionData.emotion = "happy"
+//                        self.imageEmotionData.emotion = self.emotion
                         self.imageEmotionData.img = self.image
                     }){
                         ActionButton(buttonText:"Analyze picture!")
                     }.padding(.trailing,20)
-                }
+//                }
             }
             Spacer()
         }.sheet(isPresented: self.$showCamera){
@@ -97,3 +97,16 @@ struct ActionButton: View {
     }
 }
 
+struct NavigationBar: View{
+    @EnvironmentObject var routingObserver: RoutingObserver
+    var body: some View{
+        VStack (alignment:.leading){
+            HStack{
+                Button(action: {self.routingObserver.currentPage = "main"}) {
+                                   NavigationBarBackButton()
+                               }.frame(alignment:.leading).padding(.leading, 5)
+            Spacer()
+            }
+        }
+    }
+}

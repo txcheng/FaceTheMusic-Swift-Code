@@ -10,14 +10,10 @@ import SwiftUI
 
 struct MusicView: View {
     @EnvironmentObject var routingObserver: RoutingObserver
-    @EnvironmentObject var audioPlayer: AudioPlayer
+    
     var body: some View {
-        VStack (alignment:.leading){
-            
-            Button(action: {self.routingObserver.currentPage = "main"}) {
-                NavigationBarBackButton()
-            }.frame(alignment:.leading).padding(.leading, 5)
-            
+        VStack {
+            NavigationBar()
             Divider()
             
             Spacer()
@@ -28,6 +24,7 @@ struct MusicView: View {
                 Button(action: {
                     self.routingObserver.currentPage = "options"
                     self.routingObserver.emotion = "happy"
+                    //populate the song list
                 })
                 {
                     MenuButtonContent(buttonText:"Happy")
@@ -37,6 +34,7 @@ struct MusicView: View {
                 Button(action: {
                     self.routingObserver.currentPage = "options"
                     self.routingObserver.emotion = "sad"
+                    //populate the song list
                 })
                 {
                     MenuButtonContent(buttonText:"Sad")
@@ -46,6 +44,7 @@ struct MusicView: View {
                 Button(action: {
                     self.routingObserver.currentPage = "options"
                     self.routingObserver.emotion = "angry"
+                    //populate the song list
                 })
                 {
                     MenuButtonContent(buttonText:"Angry")
@@ -55,6 +54,7 @@ struct MusicView: View {
                 Button(action: {
                     self.routingObserver.currentPage = "options"
                     self.routingObserver.emotion = "scared"
+                    //populate the song list
                 })
                 {
                     MenuButtonContent(buttonText:"Scared")
@@ -64,6 +64,7 @@ struct MusicView: View {
                 Button(action: {
                     self.routingObserver.currentPage = "options"
                     self.routingObserver.emotion = "neutral"
+                    //populate the song list
                 })
                 {
                     MenuButtonContent(buttonText:"Neutral")

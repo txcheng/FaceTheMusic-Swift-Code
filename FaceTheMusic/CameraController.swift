@@ -63,6 +63,7 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
                 self.emotion = "Error connecting to server."
                     return
             }
+            print(response)
             let emotionPrediction = String(data: data, encoding: .utf8) ?? "failed"
             //get the new img too
             self.emotion = emotionPrediction
@@ -78,7 +79,6 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
 }
 
 struct CameraController: UIViewControllerRepresentable{
-    
     //showing picture
     @Binding var isShown:Bool
     //image
