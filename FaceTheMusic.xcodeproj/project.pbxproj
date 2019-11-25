@@ -11,6 +11,8 @@
 		B170C82C238A0B3D00C460C9 /* ImageEmotionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170C82B238A0B3D00C460C9 /* ImageEmotionData.swift */; };
 		B170C82E238A1AE100C460C9 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170C82D238A1AE100C460C9 /* AudioPlayer.swift */; };
 		B170C832238A245100C460C9 /* Music in Resources */ = {isa = PBXBuildFile; fileRef = B170C831238A245000C460C9 /* Music */; };
+		B170C834238B857200C460C9 /* MusicSelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170C833238B857200C460C9 /* MusicSelectionList.swift */; };
+		B170C836238B88AC00C460C9 /* Music in Resources */ = {isa = PBXBuildFile; fileRef = B170C835238B88AC00C460C9 /* Music */; };
 		B1898C5A235940BD00E8E7EB /* TakeAPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1898C59235940BD00E8E7EB /* TakeAPictureView.swift */; };
 		B1898C5C235940C800E8E7EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1898C5B235940C700E8E7EB /* AppDelegate.swift */; };
 		B1917B332357B0DA00A2C62F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1917B322357B0DA00A2C62F /* SceneDelegate.swift */; };
@@ -50,6 +52,8 @@
 		B170C82B238A0B3D00C460C9 /* ImageEmotionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEmotionData.swift; sourceTree = "<group>"; };
 		B170C82D238A1AE100C460C9 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		B170C831238A245000C460C9 /* Music */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Music; path = ../Music; sourceTree = "<group>"; };
+		B170C833238B857200C460C9 /* MusicSelectionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSelectionList.swift; sourceTree = "<group>"; };
+		B170C835238B88AC00C460C9 /* Music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Music; sourceTree = "<group>"; };
 		B1898C59235940BD00E8E7EB /* TakeAPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeAPictureView.swift; sourceTree = "<group>"; };
 		B1898C5B235940C700E8E7EB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1917B2D2357B0DA00A2C62F /* FaceTheMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTheMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +105,7 @@
 		B1917B242357B0DA00A2C62F = {
 			isa = PBXGroup;
 			children = (
+				B170C835238B88AC00C460C9 /* Music */,
 				B1917B2F2357B0DA00A2C62F /* FaceTheMusic */,
 				B1917B462357B0DD00A2C62F /* FaceTheMusicTests */,
 				B1917B512357B0DD00A2C62F /* FaceTheMusicUITests */,
@@ -121,7 +126,6 @@
 		B1917B2F2357B0DA00A2C62F /* FaceTheMusic */ = {
 			isa = PBXGroup;
 			children = (
-				B170C831238A245000C460C9 /* Music */,
 				B1898C5B235940C700E8E7EB /* AppDelegate.swift */,
 				B1917B322357B0DA00A2C62F /* SceneDelegate.swift */,
 				B1EF0FA82388878B00D9984F /* MasterView.swift */,
@@ -129,6 +133,7 @@
 				B1898C59235940BD00E8E7EB /* TakeAPictureView.swift */,
 				B170C829238A001200C460C9 /* EmotionResultView.swift */,
 				B1EF0FAE2388F74A00D9984F /* MusicView.swift */,
+				B170C833238B857200C460C9 /* MusicSelectionList.swift */,
 				B1EF0FAC2388F59F00D9984F /* AboutMeView.swift */,
 				B1DC689723597BB900C125CF /* CameraController.swift */,
 				B1DC68992359807500C125CF /* CameraView.swift */,
@@ -138,6 +143,7 @@
 				B1917B362357B0DC00A2C62F /* Assets.xcassets */,
 				B1917B3B2357B0DC00A2C62F /* LaunchScreen.storyboard */,
 				B1917B3E2357B0DC00A2C62F /* Info.plist */,
+				B170C831238A245000C460C9 /* Music */,
 				B1917B382357B0DC00A2C62F /* Preview Content */,
 			);
 			path = FaceTheMusic;
@@ -274,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1917B3D2357B0DC00A2C62F /* LaunchScreen.storyboard in Resources */,
+				B170C836238B88AC00C460C9 /* Music in Resources */,
 				B1917B3A2357B0DC00A2C62F /* Preview Assets.xcassets in Resources */,
 				B170C832238A245100C460C9 /* Music in Resources */,
 				B1917B372357B0DC00A2C62F /* Assets.xcassets in Resources */,
@@ -313,6 +320,7 @@
 				B1DC689A2359807500C125CF /* CameraView.swift in Sources */,
 				B1DC68962359793500C125CF /* MainView.swift in Sources */,
 				B170C82E238A1AE100C460C9 /* AudioPlayer.swift in Sources */,
+				B170C834238B857200C460C9 /* MusicSelectionList.swift in Sources */,
 				B1917B332357B0DA00A2C62F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
