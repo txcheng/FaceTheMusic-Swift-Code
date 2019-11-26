@@ -29,6 +29,9 @@ struct EmotionResultView: View {
                 //what if the emotion doesn't exist? --> crash!!
                 //no face detected action necessary
                 print(self.imageEmotionData.emotion)
+                if(self.audioPlayer.userDefaultMusic[self.imageEmotionData.emotion] != nil){
+                    self.audioPlayer.play(emotion: self.audioPlayer.userDefaultMusic[self.imageEmotionData.emotion]!!)
+                }
 //                self.audioPlayer.play(emotion: self.audioPlayer.userDefaultMusic[self.imageEmotionData.emotion]!!)
             })
             Spacer()

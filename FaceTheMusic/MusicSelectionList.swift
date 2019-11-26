@@ -22,7 +22,7 @@ struct MusicSelectionList: View {
             }
             Spacer()
         }.onAppear(perform:{
-//            self.audioPlayer.play(emotion: self.audioPlayer.userDefaultMusic[self.routingObserver.emotion]!!)
+            self.audioPlayer.play(emotion: self.audioPlayer.userDefaultMusic[self.routingObserver.emotion]!!)
         })
     }
 }
