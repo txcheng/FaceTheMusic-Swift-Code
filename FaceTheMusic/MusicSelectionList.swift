@@ -22,7 +22,7 @@ struct MusicSelectionList: View {
             }
             Spacer()
         }.onAppear(perform:{
-            self.audioPlayer.play(emotion:self.routingObserver.emotion)
+//            self.audioPlayer.play(emotion:self.routingObserver.emotion)
             
         })
     }
@@ -88,12 +88,6 @@ struct MusicRow: View{
             })
         }
     }
-}
-
-//make an object Song (has the url and title of song)
-struct Song{
-    var songTitle: String
-    var songURL: URL
 }
 
 struct MusicBack: View{

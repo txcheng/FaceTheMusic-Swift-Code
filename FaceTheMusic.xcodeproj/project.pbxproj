@@ -54,6 +54,7 @@
 		B170C831238A245000C460C9 /* Music */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Music; path = ../Music; sourceTree = "<group>"; };
 		B170C833238B857200C460C9 /* MusicSelectionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSelectionList.swift; sourceTree = "<group>"; };
 		B170C835238B88AC00C460C9 /* Music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Music; sourceTree = "<group>"; };
+		B170C837238CA5E700C460C9 /* Music Credits.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Music Credits.txt"; sourceTree = "<group>"; };
 		B1898C59235940BD00E8E7EB /* TakeAPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeAPictureView.swift; sourceTree = "<group>"; };
 		B1898C5B235940C700E8E7EB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1917B2D2357B0DA00A2C62F /* FaceTheMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTheMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +106,7 @@
 		B1917B242357B0DA00A2C62F = {
 			isa = PBXGroup;
 			children = (
+				B170C837238CA5E700C460C9 /* Music Credits.txt */,
 				B170C835238B88AC00C460C9 /* Music */,
 				B1917B2F2357B0DA00A2C62F /* FaceTheMusic */,
 				B1917B462357B0DD00A2C62F /* FaceTheMusicTests */,

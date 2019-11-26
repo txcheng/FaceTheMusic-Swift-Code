@@ -18,6 +18,9 @@ struct MasterView: View {
     
     var body: some View {
         VStack {
+            if true{
+                Text("").onAppear(perform:{self.routingObserver.loadMusic()})
+            }
             if routingObserver.currentPage == "main" {
                 if audioPlayer.isPlaying{
                     Text("").onAppear(perform:{self.audioPlayer.stop()})

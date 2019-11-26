@@ -15,14 +15,17 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
     @Binding var isShown:Bool
     //image
     @Binding var image: Image?
+    //resulting image
+    @Binding var resultImage: Image?
     //string encoding
     @Binding var emotion: String
     
     //initilize variables
-    init(isShown:Binding<Bool>, image:Binding<Image?>, emotion:Binding<String>){
+    init(isShown:Binding<Bool>, image:Binding<Image?>, emotion:Binding<String>, resultImage:Binding<Image?>){
         _isShown = isShown
         _image = image
         _emotion = emotion
+        _resultImage = resultImage
     }
     
     //constructor
@@ -42,7 +45,7 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
     //takes a base64 string and submits a post requst with the string as part of a json body
     //{"img": imgStr}
     //recieves a string and saves it as the "emotion" variable
-    //recieves a json with [emotion] and [newImg] keys
+    //recieves a json with [emotion] and [resultImage] keys
     func getEmotion(imgStr: String){
         let address = "http://4b194f05.ngrok.io"
         let url = URL(string:address)!
@@ -63,6 +66,11 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
                 self.emotion = "Error connecting to server."
                     return
             }
+            //data is the json
+            //jsonreialization it
+            //get the emotion
+            //get the image
+            //make the image into a UIImage
             print(response)
             let emotionPrediction = String(data: data, encoding: .utf8) ?? "failed"
             //get the new img too
@@ -85,13 +93,14 @@ struct CameraController: UIViewControllerRepresentable{
     @Binding var image: Image?
     //string encoding
     @Binding var emotion: String
+    @Binding var resultImage: Image?
     
     //necessary function to override
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<CameraController>) {
     }
     //declare CameraCoordinator as the coordinator
     func makeCoordinator() -> CameraCoordinator{
-        return CameraCoordinator(isShown: $isShown, image: $image, emotion: $emotion)
+        return CameraCoordinator(isShown: $isShown, image: $image, emotion: $emotion, resultImage: $resultImage)
     }
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<CameraController>) -> UIImagePickerController

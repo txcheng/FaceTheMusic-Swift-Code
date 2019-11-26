@@ -14,7 +14,6 @@ import AVFoundation
 class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
     let objectWillChange = PassthroughSubject<AudioPlayer,Never>()
     //store file paths for the audio
-    
     //grab audio paths based on DefaultUserSettings
     let audioPaths: [String:URL?] = [
         "happy":  Bundle.main.url(forResource: "happy", withExtension: "mp3", subdirectory: "Music/happy"),

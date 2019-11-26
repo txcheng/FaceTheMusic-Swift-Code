@@ -13,15 +13,16 @@ struct CameraView: View {
     @Binding var image: Image?
     //string encoding
     @Binding var emotion: String
+    @Binding var resultImage: Image?
     
     var body: some View {
-        CameraController(isShown: $showCamera, image: $image, emotion: $emotion)
+        CameraController(isShown: $showCamera, image: $image, emotion: $emotion, resultImage: $resultImage)
     }
 }
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
         //pass in dummy values
-        CameraView(showCamera: .constant(false), image: .constant(nil), emotion: .constant(""))
+        CameraView(showCamera: .constant(false), image: .constant(nil), emotion: .constant(""), resultImage: .constant(nil))
     }
 }

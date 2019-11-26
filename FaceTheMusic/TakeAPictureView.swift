@@ -15,8 +15,9 @@ struct TakeAPictureView: View {
     @State private var showCamera: Bool = false
     //have the image be an environmentobject
     @State private var image: Image? = nil
+    @State private var resultImage: Image? = nil
     @State private var findEmotion: Bool = false
-    //have the emotion also be an environment object
+    //have the emotion also be an environment object ?
     @State private var emotion: String = ""
     
     var body: some View {
@@ -38,7 +39,7 @@ struct TakeAPictureView: View {
                         self.findEmotion = true
                         self.imageEmotionData.emotion = "happy"
 //                        self.imageEmotionData.emotion = self.emotion
-                        self.imageEmotionData.img = self.image
+                        self.imageEmotionData.img = self.resultImage
                     }){
                         ActionButton(buttonText:"Analyze picture!")
                     }.padding(.trailing,20)
@@ -46,8 +47,7 @@ struct TakeAPictureView: View {
             }
             Spacer()
         }.sheet(isPresented: self.$showCamera){
-            //add another binding image to store the img with a bounding box
-            CameraView(showCamera: self.$showCamera, image: self.$image, emotion: self.$emotion)
+            CameraView(showCamera: self.$showCamera, image: self.$image, emotion: self.$emotion, resultImage: self.$resultImage)
         }
     }
 }
@@ -58,7 +58,6 @@ struct TakeAPictureView_Previews: PreviewProvider {
     }
 }
 
-//style this button to be in a nav bar
 struct BackButtonContent : View {
     var body: some View {
         return Text("Go back to menu")
@@ -69,7 +68,6 @@ struct BackButtonContent : View {
             .padding(.top, 50)
     }
 }
-
 
 struct NavigationBarBackButton : View {
     var body: some View {
