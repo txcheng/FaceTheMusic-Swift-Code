@@ -27,6 +27,9 @@ struct MasterView: View {
                 }
                 MainView()
             } else if routingObserver.currentPage == "camera" {
+                if audioPlayer.isPlaying{
+                    Text("").onAppear(perform:{self.audioPlayer.stop()})
+                }
                 TakeAPictureView()
             }
             else if routingObserver.currentPage == "music"{

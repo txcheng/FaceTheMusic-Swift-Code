@@ -15,13 +15,13 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
     let objectWillChange = PassthroughSubject<AudioPlayer,Never>()
     //store file paths for the audio
     //grab audio paths based on DefaultUserSettings
-    let audioPaths: [String:URL?] = [
-        "happy":  Bundle.main.url(forResource: "happy", withExtension: "mp3", subdirectory: "Music/happy"),
-        "sad": Bundle.main.url(forResource: "sad", withExtension: "mp3",subdirectory: "Music/sad"),
-        "scared": Bundle.main.url(forResource: "scared", withExtension: "mp3",subdirectory: "Music/scared"),
-        "neutral": Bundle.main.url(forResource: "neutral", withExtension: "mp3",subdirectory: "Music/neutral"),
-        "angry": Bundle.main.url(forResource: "angry", withExtension: "mp3",subdirectory: "Music/angry")
-    ]
+//    let audioPaths: [String:URL?] = [
+//        "happy":  Bundle.main.url(forResource: "happy", withExtension: "mp3", subdirectory: "Music/happy"),
+//        "sad": Bundle.main.url(forResource: "sad", withExtension: "mp3",subdirectory: "Music/sad"),
+//        "scared": Bundle.main.url(forResource: "scared", withExtension: "mp3",subdirectory: "Music/scared"),
+//        "neutral": Bundle.main.url(forResource: "neutral", withExtension: "mp3",subdirectory: "Music/neutral"),
+//        "angry": Bundle.main.url(forResource: "angry", withExtension: "mp3",subdirectory: "Music/angry")
+//    ]
                     
     //make audio session
     var audioSession = AVAudioSession.sharedInstance()
@@ -34,6 +34,17 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
         }
     }
     
+    var userDefaultMusic: [String:URL?] = [
+            "happy":  Bundle.main.url(forResource: "happy", withExtension: "mp3", subdirectory: "Music/happy"),
+            "sad": Bundle.main.url(forResource: "sad", withExtension: "mp3",subdirectory: "Music/sad"),
+            "scared": Bundle.main.url(forResource: "scared", withExtension: "mp3",subdirectory: "Music/scared"),
+            "neutral": Bundle.main.url(forResource: "neutral", withExtension: "mp3",subdirectory: "Music/neutral"),
+            "angry": Bundle.main.url(forResource: "angry", withExtension: "mp3",subdirectory: "Music/angry")
+        ]{
+        didSet{
+            objectWillChange.send(self)
+        }
+    }
     //make this take in a URL instead
     func play(emotion:URL){
         //access speakers
@@ -45,7 +56,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
         
         //play it
         do{
-            //my program cannot find my audio files!
+            //can't find the file
             player = try AVAudioPlayer(contentsOf:emotion)
             player.delegate = self
             player.play()

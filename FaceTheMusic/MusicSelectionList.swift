@@ -22,8 +22,7 @@ struct MusicSelectionList: View {
             }
             Spacer()
         }.onAppear(perform:{
-//            self.audioPlayer.play(emotion:self.routingObserver.emotion)
-            
+//            self.audioPlayer.play(emotion: self.audioPlayer.userDefaultMusic[self.routingObserver.emotion]!!)
         })
     }
 }
@@ -86,6 +85,7 @@ struct MusicRow: View{
             .onTapGesture(perform:{
                 //set the song as default
                 print("set as default")
+                self.audioPlayer.userDefaultMusic[self.routingObserver.emotion] = self.songURL
             })
         }
     }

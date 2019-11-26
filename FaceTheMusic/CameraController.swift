@@ -47,7 +47,7 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
     //recieves a string and saves it as the "emotion" variable
     //recieves a json with [emotion] and [resultImage] keys
     func getEmotion(imgStr: String){
-        let address = "http://4b194f05.ngrok.io"
+        let address = "http://127.0.0.1:5000/"
         let url = URL(string:address)!
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
@@ -60,21 +60,22 @@ class CameraCoordinator: NSObject, UINavigationControllerDelegate, UIImagePicker
         
         let task = URLSession.shared.dataTask(with: request){
             data, response, error in
-            guard let data = data,
+            guard let dataResponse = data,
             let response = response as? HTTPURLResponse,
             error == nil else{
                 self.emotion = "Error connecting to server."
                     return
             }
             //data is the json
-            //jsonreialization it
-            //get the emotion
-            //get the image
-            //make the image into a UIImage
-            print(response)
-            let emotionPrediction = String(data: data, encoding: .utf8) ?? "failed"
-            //get the new img too
-            self.emotion = emotionPrediction
+            let jsonResponse = try? JSONSerialization.jsonObject(with: dataResponse, options: [])
+            
+            let jsonDict = jsonResponse as? [String: Any]
+            
+            self.emotion = jsonDict!["emotion"] as! String
+            let imgString = jsonDict!["resultImage"] as! String
+            let dataDecoded:NSData = NSData(base64Encoded: imgString, options: NSData.Base64DecodingOptions(rawValue: 0))!
+            let decodedimage:UIImage = UIImage(data: dataDecoded as Data)!
+            self.resultImage = Image(uiImage: decodedimage)
         }
         //do the post request
         task.resume()

@@ -32,18 +32,17 @@ struct TakeAPictureView: View {
                     ActionButton(buttonText:"Take a picture")
                 } .padding([.leading, .trailing], 20)
                 //Show analyze picture button if there is a picture
-//                if image != nil{
+                if image != nil{
                     //navigate to a different view to show the results of the analyzed picture
                     Button(action:{
                         self.routingObserver.currentPage = "result"
                         self.findEmotion = true
-                        self.imageEmotionData.emotion = "happy"
-//                        self.imageEmotionData.emotion = self.emotion
+                        self.imageEmotionData.emotion = self.emotion
                         self.imageEmotionData.img = self.resultImage
                     }){
                         ActionButton(buttonText:"Analyze picture!")
                     }.padding(.trailing,20)
-//                }
+                }
             }
             Spacer()
         }.sheet(isPresented: self.$showCamera){

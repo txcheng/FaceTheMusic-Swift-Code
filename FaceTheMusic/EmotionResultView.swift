@@ -22,10 +22,14 @@ struct EmotionResultView: View {
                 
             //picture with bounding box and labeled emotion
             self.imageEmotionData.img?.resizable()
-
+            Text(self.imageEmotionData.emotion)
                 //feed the emotion into the music player to play the correct music
             .onAppear(perform:{
-//                    self.audioPlayer.play(emotion: self.imageEmotionData.emotion)
+                //self.imageEmotionData.emotion instead of routingObserver
+                //what if the emotion doesn't exist? --> crash!!
+                //no face detected action necessary
+                print(self.imageEmotionData.emotion)
+//                self.audioPlayer.play(emotion: self.audioPlayer.userDefaultMusic[self.imageEmotionData.emotion]!!)
             })
             Spacer()
         }
