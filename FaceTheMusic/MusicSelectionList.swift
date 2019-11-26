@@ -72,6 +72,11 @@ struct MusicRow: View{
                 else{
                     self.audioPlayer.play(emotion:self.songURL)
                 }
+                if(!self.audioPlayer.isPlaying){
+                    if(self.audioPlayer.currentSong == nil || self.audioPlayer.currentSong != self.songURL){
+                        self.audioPlayer.play(emotion:self.songURL)
+                    }
+                }
             }){
                 Text("")
             }

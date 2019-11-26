@@ -32,7 +32,6 @@ struct EmotionResultView: View {
                 if(self.audioPlayer.userDefaultMusic[self.imageEmotionData.emotion] != nil){
                     self.audioPlayer.play(emotion: self.audioPlayer.userDefaultMusic[self.imageEmotionData.emotion]!!)
                 }
-//                self.audioPlayer.play(emotion: self.audioPlayer.userDefaultMusic[self.imageEmotionData.emotion]!!)
             })
             Spacer()
         }

@@ -13,16 +13,6 @@ import AVFoundation
 
 class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
     let objectWillChange = PassthroughSubject<AudioPlayer,Never>()
-    //store file paths for the audio
-    //grab audio paths based on DefaultUserSettings
-//    let audioPaths: [String:URL?] = [
-//        "happy":  Bundle.main.url(forResource: "happy", withExtension: "mp3", subdirectory: "Music/happy"),
-//        "sad": Bundle.main.url(forResource: "sad", withExtension: "mp3",subdirectory: "Music/sad"),
-//        "scared": Bundle.main.url(forResource: "scared", withExtension: "mp3",subdirectory: "Music/scared"),
-//        "neutral": Bundle.main.url(forResource: "neutral", withExtension: "mp3",subdirectory: "Music/neutral"),
-//        "angry": Bundle.main.url(forResource: "angry", withExtension: "mp3",subdirectory: "Music/angry")
-//    ]
-                    
     //make audio session
     var audioSession = AVAudioSession.sharedInstance()
     //make audio player
@@ -45,6 +35,12 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
             objectWillChange.send(self)
         }
     }
+    
+    var currentSong: URL? = nil{
+        didSet{
+            objectWillChange.send(self)
+        }
+    }
     //make this take in a URL instead
     func play(emotion:URL){
         //access speakers
@@ -60,6 +56,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
             player = try AVAudioPlayer(contentsOf:emotion)
             player.delegate = self
             player.play()
+            self.currentSong = emotion
             isPlaying = true
         }
         catch{
@@ -72,4 +69,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
         player.stop()
         isPlaying = false
     }
+    
+    
 }
