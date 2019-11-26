@@ -20,15 +20,13 @@ struct EmotionResultView: View {
             }.frame(alignment:.leading).padding(.leading, 5)
             Divider()
                 
-            //picture with bounding box
+            //picture with bounding box and labeled emotion
             self.imageEmotionData.img?.resizable()
-                
-            //emotion
-            Text(self.imageEmotionData.emotion)
+
                 //feed the emotion into the music player to play the correct music
-                .onAppear(perform:{
-                    self.audioPlayer.play(emotion: self.imageEmotionData.emotion)
-                })
+            .onAppear(perform:{
+//                    self.audioPlayer.play(emotion: self.imageEmotionData.emotion)
+            })
             Spacer()
         }
     }

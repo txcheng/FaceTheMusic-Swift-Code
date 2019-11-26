@@ -35,7 +35,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
     }
     
     //make this take in a URL instead
-    func play(emotion:String){
+    func play(emotion:URL){
         //access speakers
         do{
             try audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
@@ -46,7 +46,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate{
         //play it
         do{
             //my program cannot find my audio files!
-            player = try AVAudioPlayer(contentsOf:audioPaths[emotion]!!)
+            player = try AVAudioPlayer(contentsOf:emotion)
             player.delegate = self
             player.play()
             isPlaying = true

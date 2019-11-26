@@ -18,7 +18,7 @@ struct MusicSelectionList: View {
                 Divider()
             }
             Group{
-                MusicList(songs:["happy", "sad", "neutral"])
+                MusicList(songs:self.routingObserver.getMusic(emotion: self.routingObserver.emotion)!)
             }
             Spacer()
         }.onAppear(perform:{
@@ -43,12 +43,12 @@ struct BackButton : View {
 
 struct MusicList: View{
     //make this a list of Song objects with songTitle and URL
-    let songs: [String]
+    let songs: [Song]
 
     var body: some View{
-        return List{
-            ForEach(songs, id:\.self){ song in
-                MusicRow(songTitle:song)
+         List{
+            ForEach(songs, id:\.songTitle){ song in
+                MusicRow(songTitle:song.songTitle, songURL:song.songURL)
                 }
             }
         }
@@ -58,6 +58,7 @@ struct MusicRow: View{
     @EnvironmentObject var routingObserver: RoutingObserver
     @EnvironmentObject var audioPlayer: AudioPlayer
     var songTitle: String
+    var songURL: URL
     var body: some View{
         HStack{
             Text(songTitle)
@@ -70,7 +71,7 @@ struct MusicRow: View{
                     self.audioPlayer.stop()
                 }
                 else{
-                    self.audioPlayer.play(emotion:self.routingObserver.emotion)
+                    self.audioPlayer.play(emotion:self.songURL)
                 }
             }){
                 Text("")

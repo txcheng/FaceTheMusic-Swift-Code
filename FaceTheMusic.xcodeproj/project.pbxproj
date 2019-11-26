@@ -128,6 +128,8 @@
 		B1917B2F2357B0DA00A2C62F /* FaceTheMusic */ = {
 			isa = PBXGroup;
 			children = (
+				B170C82B238A0B3D00C460C9 /* ImageEmotionData.swift */,
+				B1EF0FAA2388886D00D9984F /* RoutingObserver.swift */,
 				B1898C5B235940C700E8E7EB /* AppDelegate.swift */,
 				B1917B322357B0DA00A2C62F /* SceneDelegate.swift */,
 				B1EF0FA82388878B00D9984F /* MasterView.swift */,
@@ -140,8 +142,6 @@
 				B1DC689723597BB900C125CF /* CameraController.swift */,
 				B1DC68992359807500C125CF /* CameraView.swift */,
 				B170C82D238A1AE100C460C9 /* AudioPlayer.swift */,
-				B1EF0FAA2388886D00D9984F /* RoutingObserver.swift */,
-				B170C82B238A0B3D00C460C9 /* ImageEmotionData.swift */,
 				B1917B362357B0DC00A2C62F /* Assets.xcassets */,
 				B1917B3B2357B0DC00A2C62F /* LaunchScreen.storyboard */,
 				B1917B3E2357B0DC00A2C62F /* Info.plist */,

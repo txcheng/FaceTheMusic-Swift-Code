@@ -55,10 +55,11 @@ class RoutingObserver: ObservableObject {
     func getMusic(emotion:String) -> [Song]?{
         return musicMap[emotion]
     }
-    
-    //make an object Song (has the url and title of song)
-    struct Song{
-        var songTitle: String
-        var songURL: URL
-    }
+
+}
+
+//make an object Song (has the url and title of song)
+struct Song{
+    var songTitle: String
+    var songURL: URL
 }
